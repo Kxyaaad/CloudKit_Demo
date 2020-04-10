@@ -16,7 +16,7 @@ class addNewController: UIViewController {
     
     var imgCollection : UICollectionView?
     
-    var imgsData : Array<Data> = []
+    var imgsData : Array<UIImage> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,15 +130,25 @@ extension addNewController:UITextViewDelegate {
 
 extension addNewController:UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return self.imgsData.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PICKIMAGE", for: indexPath) as! pickImageCell
-        
-        cell.touchBtn?.setBackgroundImage(UIImage.init(named: "tianjiatupian"), for: [])
-        cell.touchBtn?.addTarget(self, action: #selector(getAlbumList), for: .touchUpInside)
+        if indexPath.row  == self.imgsData.count {
+            cell.touchBtn?.setBackgroundImage(UIImage.init(named: "tianjiatupian"), for: [])
+//            cell.touchBtn?.addTarget(self, action: #selector(getAlbumList), for: .touchUpInside)
+        }else {
+            cell.touchBtn?.setBackgroundImage(self.imgsData[indexPath.row], for: [])
+//            cell.touchBtn?.removeTarget(self, action: #selector(getAlbumList), for: .touchUpInside)
+        }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == self.imgsData.count{
+            self.getAlbumList()
+        }
     }
     
 }
@@ -147,7 +157,9 @@ extension addNewController:UICollectionViewDelegate,UICollectionViewDataSource {
 extension addNewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     @objc private func getAlbumList() {
         let Alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
-        let albumAction = UIAlertAction(title: "", style: <#T##UIAlertAction.Style#>, handler: <#T##((UIAlertAction) -> Void)?##((UIAlertAction) -> Void)?##(UIAlertAction) -> Void#>)
+        let albumAction = UIAlertAction(title: "相册", style: .default) { (_) in
+            self.album()
+        }
         
         let tokePhotoAction = UIAlertAction(title: "照相", style: .default) { (_) in
             self.takePhoto()
@@ -159,6 +171,14 @@ extension addNewController:UIImagePickerControllerDelegate,UINavigationControlle
         Alert.addAction(tokePhotoAction)
         Alert.addAction(cancelAction)
         self.present(Alert, animated: true, completion: nil)
+    }
+    
+    private func album() {
+        let albumPicker = UIImagePickerController()
+        albumPicker.sourceType = .photoLibrary
+        albumPicker.delegate = self
+        albumPicker.allowsEditing = true
+        self.present(albumPicker, animated: true, completion: nil)
     }
     
     private func takePhoto() {
@@ -179,7 +199,10 @@ extension addNewController:UIImagePickerControllerDelegate,UINavigationControlle
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print("完成获取照片")
         let tokedPhoto = info[.editedImage] as! UIImage
-        let data = Data.init()
+        self.imgsData.append(tokedPhoto)
+        if picker.sourceType == .camera {
+            UIImageWriteToSavedPhotosAlbum(tokedPhoto, self, nil, nil)
+        }
         dismiss(animated: true) {
             self.imgCollection?.reloadData()
         }
