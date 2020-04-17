@@ -10,16 +10,20 @@ import UIKit
 
 class pickImageCell: UICollectionViewCell {
     
-    var touchBtn : UIButton?
+    var imgView : UIImageView?
+    var longPress : UILongPressGestureRecognizer!
+    var delateBtn : UIButton?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        self.imgView = UIImageView()
+        self.imgView?.frame = CGRect(origin: .zero, size: CGSize(width: self.frame.width, height: self.frame.height))
+        self.imgView?.layer.cornerRadius = 6
+        self.addSubview(self.imgView!)
+        self.longPress = UILongPressGestureRecognizer()
+        self.addGestureRecognizer(self.longPress)
         
-        self.touchBtn = UIButton()
-        self.touchBtn?.frame = frame
-        self.touchBtn?.layer.cornerRadius = 6
-        self.addSubview(self.touchBtn!)
         
     }
     

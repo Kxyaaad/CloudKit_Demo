@@ -18,18 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         self.window?.rootViewController = MainTabBar()
-        self.window?.backgroundColor = UIColor.init(dynamicProvider: { (tc) -> UIColor in
-            switch tc.userInterfaceStyle {
-            case .dark:
-                return .black
-            case .light:
-                return .white
-            case .unspecified:
-                return .white
-            @unknown default:
-                return .white
-            }
-        })
+        self.window?.backgroundColor = UIColor.dynamicColor(lightColor: .white, darkColor: .black)
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

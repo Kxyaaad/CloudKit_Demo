@@ -11,6 +11,8 @@
 		044CB2E4243DAF7400D97EF0 /* addNewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CB2E3243DAF7400D97EF0 /* addNewController.swift */; };
 		044CB2E6243DAF9100D97EF0 /* mineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CB2E5243DAF9100D97EF0 /* mineViewController.swift */; };
 		044CB2E8243DAFA200D97EF0 /* blankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CB2E7243DAFA200D97EF0 /* blankViewController.swift */; };
+		04631FEB2443FF6C001B3ED8 /* dynamicColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04631FEA2443FF6C001B3ED8 /* dynamicColor.swift */; };
+		046DB2862446DF0B0086CEE9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DB2852446DF0B0086CEE9 /* MainTableViewCell.swift */; };
 		04CAA009243D7603004F6723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CAA008243D7603004F6723 /* AppDelegate.swift */; };
 		04CAA00B243D7603004F6723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CAA00A243D7603004F6723 /* SceneDelegate.swift */; };
 		04CAA00D243D7603004F6723 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CAA00C243D7603004F6723 /* ViewController.swift */; };
@@ -19,6 +21,7 @@
 		04CAA015243D7605004F6723 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04CAA014243D7605004F6723 /* Assets.xcassets */; };
 		04CAA018243D7605004F6723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CAA016243D7605004F6723 /* LaunchScreen.storyboard */; };
 		04CAA022243D763A004F6723 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAA021243D763A004F6723 /* CloudKit.framework */; };
+		04DA4CC62448432400FC8396 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA4CC52448432400FC8396 /* LoginViewController.swift */; };
 		04E4F7DA243F22330038F014 /* pickImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4F7D9243F22330038F014 /* pickImageCell.swift */; };
 		75B542C9C58F97BB0B80FA3E /* Pods_CloudKit_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD25941B44475E6D33E4AAC /* Pods_CloudKit_Demo.framework */; };
 /* End PBXBuildFile section */
@@ -29,6 +32,8 @@
 		044CB2E3243DAF7400D97EF0 /* addNewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addNewController.swift; sourceTree = "<group>"; };
 		044CB2E5243DAF9100D97EF0 /* mineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mineViewController.swift; sourceTree = "<group>"; };
 		044CB2E7243DAFA200D97EF0 /* blankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blankViewController.swift; sourceTree = "<group>"; };
+		04631FEA2443FF6C001B3ED8 /* dynamicColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dynamicColor.swift; sourceTree = "<group>"; };
+		046DB2852446DF0B0086CEE9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		04CAA005243D7603004F6723 /* CloudKit_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudKit_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CAA008243D7603004F6723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04CAA00A243D7603004F6723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +45,7 @@
 		04CAA019243D7605004F6723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04CAA01F243D7633004F6723 /* CloudKit_DemoRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloudKit_DemoRelease.entitlements; sourceTree = "<group>"; };
 		04CAA021243D763A004F6723 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		04DA4CC52448432400FC8396 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		04E4F7D9243F22330038F014 /* pickImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickImageCell.swift; sourceTree = "<group>"; };
 		AC5FEEBFBB8D6FE24A04A7E5 /* Pods-CloudKit_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudKit_Demo.debug.xcconfig"; path = "Target Support Files/Pods-CloudKit_Demo/Pods-CloudKit_Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		AF639507C11B30DA2F281E08 /* Pods-CloudKit_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudKit_Demo.release.xcconfig"; path = "Target Support Files/Pods-CloudKit_Demo/Pods-CloudKit_Demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -68,8 +74,17 @@
 				044CB2E3243DAF7400D97EF0 /* addNewController.swift */,
 				044CB2E5243DAF9100D97EF0 /* mineViewController.swift */,
 				044CB2E7243DAFA200D97EF0 /* blankViewController.swift */,
+				04DA4CC52448432400FC8396 /* LoginViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		04631FE92443FE14001B3ED8 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				04631FEA2443FF6C001B3ED8 /* dynamicColor.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		04CA9FFC243D7603004F6723 = {
@@ -93,6 +108,7 @@
 		04CAA007243D7603004F6723 /* CloudKit_Demo */ = {
 			isa = PBXGroup;
 			children = (
+				04631FE92443FE14001B3ED8 /* Tools */,
 				044CB2DC243D81B600D97EF0 /* Views */,
 				044CB2DB243D7BBA00D97EF0 /* CloudKit_DemoDebug.entitlements */,
 				04CAA01F243D7633004F6723 /* CloudKit_DemoRelease.entitlements */,
@@ -120,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				04E4F7D9243F22330038F014 /* pickImageCell.swift */,
+				046DB2852446DF0B0086CEE9 /* MainTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -248,9 +265,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DA4CC62448432400FC8396 /* LoginViewController.swift in Sources */,
+				046DB2862446DF0B0086CEE9 /* MainTableViewCell.swift in Sources */,
 				04CAA00D243D7603004F6723 /* ViewController.swift in Sources */,
 				04CAA013243D7603004F6723 /* CloudKit_Demo.xcdatamodeld in Sources */,
 				04CAA009243D7603004F6723 /* AppDelegate.swift in Sources */,
+				04631FEB2443FF6C001B3ED8 /* dynamicColor.swift in Sources */,
 				044CB2E8243DAFA200D97EF0 /* blankViewController.swift in Sources */,
 				044CB2E0243D82F500D97EF0 /* MainTabBar.swift in Sources */,
 				044CB2E4243DAF7400D97EF0 /* addNewController.swift in Sources */,
