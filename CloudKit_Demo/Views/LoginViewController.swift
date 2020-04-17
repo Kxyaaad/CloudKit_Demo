@@ -66,32 +66,34 @@ class LoginViewController: UIViewController {
     @objc func Login() {
         if self.userName.text != "" && self.passWord.text != "" {
             let pbData = CKContainer.default().publicCloudDatabase
-//            let logRecord = CKRecord.init(recordType: "Users", recordID: CKRecord.ID(recordName: self.userName.text!))
             let predicate = NSPredicate(format: "description = %@", self.userName.text!)
             print(predicate)
-            pbData.perform(CKQuery.init(recordType: "Users", predicate: predicate), inZoneWith: nil) { (records, error) in
+            pbData.perform(CKQuery.init(recordType: "TestType", predicate: predicate), inZoneWith: nil) { (records, error) in
                 if error == nil {
-                    print("查询结果", records)
+                    print("查询结果", records as Any)
+                    if records == [] {
+                        ///主线程中进行界面更新，否则会崩溃
+                        DispatchQueue.main.async {
+                            let alert = UIAlertController(title: "未找到相关用户", message: "请确认您输入的用户名是否正确，或请您注册。", preferredStyle: .alert)
+                                                   
+                                                   let ac1 = UIAlertAction(title: "注册", style: .default) { (_) in
+                                                       //跳转到注册页面
+                                                   }
+                                                   
+                                                   let ac2 = UIAlertAction(title: "取消", style: .cancel) { (_) in
+                                                       
+                                                   }
+                                                   alert.addAction(ac1)
+                                                   alert.addAction(ac2)
+                                                   self.present(alert, animated: true, completion: nil)
+                        }
+                       
+                    }
+                    
                 }else {
-                    print("查询错误", error.de)
+                    print("查询错误",error?.localizedDescription as Any)
                 }
             }
-//            pbData.fetch(withRecordID: logRecordID) { (record, error) in
-//                if error == nil {
-//                    print("查询结果", record)
-//                }else {
-//                    DispatchQueue.main.async {
-//                        let alert = UIAlertController(title: nil, message: "用户名不存在", preferredStyle: .alert)
-//                        let ac = UIAlertAction(title: "确定", style: .cancel) { (_) in
-//                            
-//                        }
-//                        
-//                        alert.addAction(ac)
-//                        self.present(alert, animated: true, completion: nil)
-//                    }
-//                    
-//                }
-//            }
             
             
         }else {

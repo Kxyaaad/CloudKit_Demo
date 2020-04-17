@@ -75,7 +75,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath)  as! MainTableViewCell
         cell.record = self.Records[indexPath.row]
-        print("获取到的数据", cell.record)
+        print("获取到的数据", cell.record as Any)
         cell.setUI()
         return cell
     }
