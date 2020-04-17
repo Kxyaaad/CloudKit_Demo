@@ -67,13 +67,13 @@ class LoginViewController: UIViewController {
         if self.userName.text != "" && self.passWord.text != "" {
             let pbData = CKContainer.default().publicCloudDatabase
 //            let logRecord = CKRecord.init(recordType: "Users", recordID: CKRecord.ID(recordName: self.userName.text!))
-            let predicate = NSPredicate(format: "Ed != %d", 1)
+            let predicate = NSPredicate(format: "description = %@", self.userName.text!)
             print(predicate)
-            pbData.perform(CKQuery.init(recordType: "TestType", predicate: predicate), inZoneWith: nil) { (records, error) in
-                if error != nil {
+            pbData.perform(CKQuery.init(recordType: "Users", predicate: predicate), inZoneWith: nil) { (records, error) in
+                if error == nil {
                     print("查询结果", records)
                 }else {
-                    print("查询错误", error)
+                    print("查询错误", error.de)
                 }
             }
 //            pbData.fetch(withRecordID: logRecordID) { (record, error) in
