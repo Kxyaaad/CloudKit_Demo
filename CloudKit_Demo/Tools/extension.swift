@@ -1,17 +1,15 @@
 //
-//  dynamicColor.swift
+//  extension.swift
 //  CloudKit_Demo
 //
-//  Created by Mac on 2020/4/13.
+//  Created by Mac on 2020/4/21.
 //  Copyright © 2020 Mac. All rights reserved.
 //
 
 import Foundation
 import UIKit
+import NotificationCenter
 
-
-let ScreenWidth = UIScreen.main.bounds.width
-let ScreenHeight = UIScreen.main.bounds.height
 
 extension UIColor {
     class func dynamicColor (lightColor: UIColor, darkColor:UIColor) -> UIColor {
@@ -32,3 +30,5 @@ extension UIColor {
     
     
 }
+
+

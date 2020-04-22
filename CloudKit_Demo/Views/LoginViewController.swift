@@ -9,8 +9,8 @@
 import UIKit
 import CloudKit
 
-class LoginViewController: UIViewController {
-
+class LoginViewController: BaseViewController {
+    
     let userName = UITextField()
     
     let passWord = UITextField()
@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.setUI()
         
@@ -40,13 +40,16 @@ class LoginViewController: UIViewController {
         self.userName.backgroundColor = .white
         self.userName.center = CGPoint(x: ScreenWidth/2, y: ScreenHeight/2-100)
         self.userName.layer.cornerRadius = 10
+        self.userName.textColor = .black
         self.userName.placeholder = "请输入用户名"
         
         self.passWord.frame.size = CGSize(width: ScreenWidth / 2, height: 40)
         self.passWord.backgroundColor = .white
         self.passWord.center = CGPoint(x: ScreenWidth/2, y: ScreenHeight/2 - 40)
         self.passWord.layer.cornerRadius = 10
+        self.passWord.textColor = .black
         self.passWord.placeholder = "请输入密码"
+        
         self.passWord.isSecureTextEntry = true
         
         self.login.frame.size = CGSize(width: 100, height: 50)
@@ -59,6 +62,7 @@ class LoginViewController: UIViewController {
         self.register.center = CGPoint(x: ScreenWidth/2, y: ScreenHeight/2+100)
         self.register.setTitle("注册", for: [])
         self.register.setTitleColor(.white, for: .normal)
+        self.register.addTarget(self, action: #selector(Register), for: .touchUpInside)
         
     }
     
@@ -75,19 +79,20 @@ class LoginViewController: UIViewController {
                         ///主线程中进行界面更新，否则会崩溃
                         DispatchQueue.main.async {
                             let alert = UIAlertController(title: "未找到相关用户", message: "请确认您输入的用户名是否正确，或请您注册。", preferredStyle: .alert)
-                                                   
-                                                   let ac1 = UIAlertAction(title: "注册", style: .default) { (_) in
-                                                       //跳转到注册页面
-                                                   }
-                                                   
-                                                   let ac2 = UIAlertAction(title: "取消", style: .cancel) { (_) in
-                                                       
-                                                   }
-                                                   alert.addAction(ac1)
-                                                   alert.addAction(ac2)
-                                                   self.present(alert, animated: true, completion: nil)
+                            
+                            let ac1 = UIAlertAction(title: "注册", style: .default) { (_) in
+                                //跳转到注册页面
+                                self.Register()
+                            }
+                            
+                            let ac2 = UIAlertAction(title: "取消", style: .cancel) { (_) in
+                                
+                            }
+                            alert.addAction(ac1)
+                            alert.addAction(ac2)
+                            self.present(alert, animated: true, completion: nil)
                         }
-                       
+                        
                     }
                     
                 }else {
@@ -109,8 +114,18 @@ class LoginViewController: UIViewController {
     }
     
     @objc func Register() {
-       
+        let vc = RegisterViewController()
+        vc.isisRegisteSuccessed = self
+        self.present(vc, animated: true, completion: nil)
     }
+    
+}
+
+extension LoginViewController:isRegisteSuccessedDelegate{
+    func isisRegisteSuccessed(isisRegisteSuccessed: Bool) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
 }
 

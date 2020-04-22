@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class ViewController: UIViewController {
+class ViewController: BaseViewController {
 
     var btn : UIButton?
     var imgView = UIImageView()
@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.setUI()
-        
+        print("加载第一个页面")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,11 +44,11 @@ class ViewController: UIViewController {
         self.tableView.showsVerticalScrollIndicator = false
         view.addSubview(self.tableView)
         
-        self.QuartData()
+        self.QuaryData()
     }
     
     @objc
-    func QuartData(){
+    func QuaryData(){
         let publicDatabase = CKContainer.default().publicCloudDatabase
         
         publicDatabase.perform(CKQuery.init(recordType: "TestType", predicate: NSPredicate.init(value: true)), inZoneWith: nil) { (records, error) in

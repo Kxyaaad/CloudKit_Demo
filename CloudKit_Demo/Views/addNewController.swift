@@ -11,7 +11,7 @@ import SnapKit
 import CloudKit
 import Photos
 
-class addNewController: UIViewController {
+class addNewController: BaseViewController {
     
     var textInput : UITextView?
     

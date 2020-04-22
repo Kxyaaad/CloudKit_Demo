@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043A2197244EC48D000AFC77 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A2196244EC48D000AFC77 /* SettingViewController.swift */; };
+		043A219A244EEA1B000AFC77 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A2199244EEA1B000AFC77 /* extension.swift */; };
+		043A219C244EFA63000AFC77 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A219B244EFA63000AFC77 /* BaseViewController.swift */; };
 		044CB2E0243D82F500D97EF0 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CB2DF243D82F500D97EF0 /* MainTabBar.swift */; };
 		044CB2E4243DAF7400D97EF0 /* addNewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CB2E3243DAF7400D97EF0 /* addNewController.swift */; };
 		044CB2E6243DAF9100D97EF0 /* mineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CB2E5243DAF9100D97EF0 /* mineViewController.swift */; };
 		044CB2E8243DAFA200D97EF0 /* blankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CB2E7243DAFA200D97EF0 /* blankViewController.swift */; };
-		04631FEB2443FF6C001B3ED8 /* dynamicColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04631FEA2443FF6C001B3ED8 /* dynamicColor.swift */; };
+		045D582D244D36B900493BD0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D582C244D36B900493BD0 /* RegisterViewController.swift */; };
+		045D582F244D77DE00493BD0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D582E244D77DE00493BD0 /* ActivityIndicator.swift */; };
+		04631FEB2443FF6C001B3ED8 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04631FEA2443FF6C001B3ED8 /* Tools.swift */; };
 		046DB2862446DF0B0086CEE9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DB2852446DF0B0086CEE9 /* MainTableViewCell.swift */; };
 		04CAA009243D7603004F6723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CAA008243D7603004F6723 /* AppDelegate.swift */; };
 		04CAA00B243D7603004F6723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CAA00A243D7603004F6723 /* SceneDelegate.swift */; };
@@ -27,12 +32,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		043A2196244EC48D000AFC77 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		043A2199244EEA1B000AFC77 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		043A219B244EFA63000AFC77 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		044CB2DB243D7BBA00D97EF0 /* CloudKit_DemoDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloudKit_DemoDebug.entitlements; sourceTree = "<group>"; };
 		044CB2DF243D82F500D97EF0 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		044CB2E3243DAF7400D97EF0 /* addNewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addNewController.swift; sourceTree = "<group>"; };
 		044CB2E5243DAF9100D97EF0 /* mineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mineViewController.swift; sourceTree = "<group>"; };
 		044CB2E7243DAFA200D97EF0 /* blankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blankViewController.swift; sourceTree = "<group>"; };
-		04631FEA2443FF6C001B3ED8 /* dynamicColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dynamicColor.swift; sourceTree = "<group>"; };
+		045D582C244D36B900493BD0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		045D582E244D77DE00493BD0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		04631FEA2443FF6C001B3ED8 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		046DB2852446DF0B0086CEE9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		04CAA005243D7603004F6723 /* CloudKit_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudKit_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CAA008243D7603004F6723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,16 +75,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043A2198244EC49C000AFC77 /* MineViews */ = {
+			isa = PBXGroup;
+			children = (
+				044CB2E5243DAF9100D97EF0 /* mineViewController.swift */,
+				043A2196244EC48D000AFC77 /* SettingViewController.swift */,
+			);
+			path = MineViews;
+			sourceTree = "<group>";
+		};
 		044CB2DC243D81B600D97EF0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				043A2198244EC49C000AFC77 /* MineViews */,
 				04E4F7D8243F21FE0038F014 /* Cells */,
 				04CAA00C243D7603004F6723 /* ViewController.swift */,
 				044CB2DF243D82F500D97EF0 /* MainTabBar.swift */,
 				044CB2E3243DAF7400D97EF0 /* addNewController.swift */,
-				044CB2E5243DAF9100D97EF0 /* mineViewController.swift */,
 				044CB2E7243DAFA200D97EF0 /* blankViewController.swift */,
 				04DA4CC52448432400FC8396 /* LoginViewController.swift */,
+				045D582C244D36B900493BD0 /* RegisterViewController.swift */,
+				043A219B244EFA63000AFC77 /* BaseViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -82,7 +103,9 @@
 		04631FE92443FE14001B3ED8 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				04631FEA2443FF6C001B3ED8 /* dynamicColor.swift */,
+				04631FEA2443FF6C001B3ED8 /* Tools.swift */,
+				045D582E244D77DE00493BD0 /* ActivityIndicator.swift */,
+				043A2199244EEA1B000AFC77 /* extension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -269,12 +292,17 @@
 				046DB2862446DF0B0086CEE9 /* MainTableViewCell.swift in Sources */,
 				04CAA00D243D7603004F6723 /* ViewController.swift in Sources */,
 				04CAA013243D7603004F6723 /* CloudKit_Demo.xcdatamodeld in Sources */,
+				045D582F244D77DE00493BD0 /* ActivityIndicator.swift in Sources */,
+				043A2197244EC48D000AFC77 /* SettingViewController.swift in Sources */,
 				04CAA009243D7603004F6723 /* AppDelegate.swift in Sources */,
-				04631FEB2443FF6C001B3ED8 /* dynamicColor.swift in Sources */,
+				043A219C244EFA63000AFC77 /* BaseViewController.swift in Sources */,
+				043A219A244EEA1B000AFC77 /* extension.swift in Sources */,
+				04631FEB2443FF6C001B3ED8 /* Tools.swift in Sources */,
 				044CB2E8243DAFA200D97EF0 /* blankViewController.swift in Sources */,
 				044CB2E0243D82F500D97EF0 /* MainTabBar.swift in Sources */,
 				044CB2E4243DAF7400D97EF0 /* addNewController.swift in Sources */,
 				04E4F7DA243F22330038F014 /* pickImageCell.swift in Sources */,
+				045D582D244D36B900493BD0 /* RegisterViewController.swift in Sources */,
 				044CB2E6243DAF9100D97EF0 /* mineViewController.swift in Sources */,
 				04CAA00B243D7603004F6723 /* SceneDelegate.swift in Sources */,
 			);
