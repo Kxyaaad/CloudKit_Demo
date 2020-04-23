@@ -18,3 +18,6 @@ let ScreenHeight = UIScreen.main.bounds.height
 ///用户登录成功通知
 let UserLoginSuccessedNotification = "UserLoginSuccessedNotification"
 
+
+///发布后通知刷新
+let UpdataBlogNotification = "UpdataBlogNotification"

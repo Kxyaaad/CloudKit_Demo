@@ -91,13 +91,14 @@ class addNewController: BaseViewController {
     
     @objc
     private func upLoad() {
-        
-        print("开始上传")
+        ActivityIndicator.shared.start(viewController: self) {
+            
+        }
         //新建
-        let artworkRecordID = CKRecord.ID(recordName: "2")
-        let artworkRecord = CKRecord(recordType: "TestType", recordID: artworkRecordID)
-        artworkRecord["description"] = self.textInput!.text
-        
+        let artworkRecordID = CKRecord.ID(recordName: "1-3")
+        let artworkRecord = CKRecord(recordType: "BlogData", recordID: artworkRecordID)
+        artworkRecord["des"] = self.textInput!.text
+        artworkRecord["Artist"] = UserDefaults.standard.string(forKey: "userName")!
         //添加图片
         var imgAssets : Array<CKAsset> = []
         for i in 0..<self.imgsURL.count {
@@ -119,6 +120,11 @@ class addNewController: BaseViewController {
                 return
             }
             print("保存完毕")
+            ActivityIndicator.shared.dismiss(viewController: self) {
+                self.dismiss(animated: true) {
+                    NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: UpdataBlogNotification)))
+                }
+            }
         }
         
     }
@@ -344,8 +350,6 @@ extension addNewController:UIImagePickerControllerDelegate,UINavigationControlle
             
             
         }
-        
-        
         dismiss(animated: true) {
             self.imgCollection?.reloadData()
         }

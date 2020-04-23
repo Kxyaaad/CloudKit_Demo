@@ -32,6 +32,20 @@ class mineViewController: UIViewController {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem?.tintColor = UIColor.dynamicColor(lightColor: .black, darkColor: .white)
         
+        
+        ///头像
+        
+        let iconBtn = UIButton()
+        iconBtn.frame = CGRect(origin: CGPoint(x: 20, y: self.navigationController!.navigationBar.frame.height+UIApplication.shared.statusBarFrame.height + 20), size: CGSize(width: 60, height: 60))
+        iconBtn.setBackgroundImage(UIImage(named: "touxiang"), for: [])
+        view.addSubview(iconBtn)
+        
+        let nameLab = UILabel()
+        nameLab.frame = CGRect(origin: CGPoint(x: 110, y: self.navigationController!.navigationBar.frame.height+UIApplication.shared.statusBarFrame.height + 20), size: CGSize(width: 100, height: 60))
+        nameLab.text = UserDefaults.standard.string(forKey: "userName")
+        nameLab.textColor = UIColor.dynamicColor(lightColor: UIColor.init(white: 0.2, alpha: 1), darkColor: .white)
+        view.addSubview(nameLab)
+        
     }
     
     @objc func toSetting() {
