@@ -71,8 +71,6 @@ class ViewController: BaseViewController {
         var operation : CKQueryOperation?
         
         if cursor != nil {
-            print(cursor)
-
             operation = CKQueryOperation(cursor: cursor!)
         }else {
             let query = CKQuery(recordType: "BlogData", predicate: NSPredicate(value: true))
@@ -168,6 +166,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell" ,for: indexPath)  as! MainTableViewCell
+        
         cell.record = self.Records[indexPath.row]
         cell.desLabelHeight = getLabHeigh(labelStr: cell.record!["des"] as! String)
         if cell.isLoad == false  {
@@ -187,6 +186,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let lines = Int(CGFloat(labelStr.count) * 15 / (self.view.frame.width - 20) ) + 1
         return CGFloat((lines * 15) + 20)
 
+    }
+    
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == self.Records.count - 1 {
+            DispatchQueue.main.async {
+                self.QuaryData()
+            }
+            
+        }
     }
 }
 
