@@ -50,7 +50,6 @@ class MainTableViewCell: UITableViewCell {
 extension MainTableViewCell: UIScrollViewDelegate {
     
     public func setUI() {
-        print("重载cell")
         let nameLab = UILabel(frame: CGRect(origin: CGPoint(x: 30, y: 10), size: CGSize(width: self.frame.width, height: 20)))
         nameLab.text = self.record!["Artist"] as? String
         

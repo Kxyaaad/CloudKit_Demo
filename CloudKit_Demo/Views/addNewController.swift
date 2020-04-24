@@ -95,7 +95,7 @@ class addNewController: BaseViewController {
             
         }
         //新建
-        let artworkRecordID = CKRecord.ID(recordName: "1-3")
+        let artworkRecordID = CKRecord.ID()
         let artworkRecord = CKRecord(recordType: "BlogData", recordID: artworkRecordID)
         artworkRecord["des"] = self.textInput!.text
         artworkRecord["Artist"] = UserDefaults.standard.string(forKey: "userName")!

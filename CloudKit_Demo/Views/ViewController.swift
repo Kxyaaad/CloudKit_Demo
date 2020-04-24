@@ -17,14 +17,16 @@ class ViewController: BaseViewController {
     var Records : Array<CKRecord> = []
     var refresh = UIRefreshControl()
     
+    ///查询数据的标记
+    var cursor : CKQueryOperation.Cursor?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.setUI()
-     
+     //查询数据
         self.QuaryData()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(QuaryData), name: NSNotification.Name(UpdataBlogNotification), object: nil)
     }
     
@@ -59,31 +61,103 @@ class ViewController: BaseViewController {
         
         view.addSubview(self.tableView)
         
-        self.QuaryData()
         
         
     }
     
     @objc
     func QuaryData(){
-        let publicDatabase = CKContainer.default().publicCloudDatabase
         
-        publicDatabase.perform(CKQuery.init(recordType: "BlogData", predicate: NSPredicate.init(value: true)), inZoneWith: nil) { (records, error) in
-            if records != nil {
-                self.Records = records!
-                self.Records = self.Records.reversed()
+        var operation : CKQueryOperation?
+        
+        if cursor != nil {
+            print(cursor)
+
+            operation = CKQueryOperation(cursor: cursor!)
+        }else {
+            let query = CKQuery(recordType: "BlogData", predicate: NSPredicate(value: true))
+            ///添加排序条件，此方法会作用于后面用于更新的CKCursor
+            query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            operation = CKQueryOperation(query: query)
+        }
+                
+        operation?.resultsLimit = 2
+        
+        operation?.queuePriority = .veryHigh
+        
+        operation?.recordFetchedBlock = {record in
+            self.Records.append(record)
+            print("查询", record)
+        }
+
+
+        operation?.queryCompletionBlock = { (Cursor, e) in
+            if e == nil {
+                self.cursor = Cursor
                 DispatchQueue.main.async {
+                    print("数据量", self.Records.count)
                     self.tableView.reloadData()
                     if self.refresh.isRefreshing {
                         self.refresh.endRefreshing()
                     }
                 }
-                
+            }else {
+                print("加载出错", e.debugDescription)
             }
         }
-        
-        
+    
+        let publicDatabase = CKContainer.default().publicCloudDatabase
+   
+        ///此时才开始获取数据
+        publicDatabase.add(operation!)
+//
+//        publicDatabase.perform(CKQuery.init(recordType: "BlogData", predicate: NSPredicate.init(value: true)), inZoneWith: nil) { (records, error) in
+//            if records != nil {
+//                self.Records = records!
+//                self.Records = self.Records.reversed()
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                    if self.refresh.isRefreshing {
+//                        self.refresh.endRefreshing()
+//                    }
+//                }
+//
+//            }
+//        }
     }
+    
+    @objc func refreshData() {
+//        self.Records = []
+        var operation : CKQueryOperation?
+            
+        operation = CKQueryOperation(query: CKQuery.init(recordType: "BlogData", predicate: NSPredicate.init(value: true)))
+                    
+        operation?.resultsLimit = 2
+        
+        
+        
+        operation?.recordFetchedBlock = {record in
+            self.Records.insert(record, at: 0)
+            print("查询", record)
+        }
+        operation?.queryCompletionBlock = { (Cursor, e) in
+            if e == nil {
+                self.cursor = Cursor
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.refresh.endRefreshing()
+                }
+            }else {
+                print("加载出错")
+            }
+        }
+        let publicDatabase = CKContainer.default().publicCloudDatabase
+        
+        ///此时才开始获取数据
+        publicDatabase.add(operation!)
+        //
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -103,6 +177,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       
         let record = self.Records[indexPath.row]
         
         return self.view.frame.width + 65 + getLabHeigh(labelStr: record["des"] as! String)
