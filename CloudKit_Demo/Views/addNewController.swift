@@ -316,10 +316,9 @@ extension addNewController:UIImagePickerControllerDelegate,UINavigationControlle
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print("完成获取照片")
-        
         let tokedPhoto = info[.editedImage] as! UIImage
         self.imgsData.insert(tokedPhoto, at: 0)
-        
+    
         if picker.sourceType == .camera {
 //            //初始化一个标识符
             var localId: String!
