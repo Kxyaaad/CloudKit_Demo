@@ -108,8 +108,9 @@ extension MainTableViewCell: UIScrollViewDelegate {
 //                    let imageData =
 //                    let image = UIImage.init(data: imageData!)
 //                    data = UIImageJPEGRepresentation(self, 0.2)!
-                    let image = UIImage.init(data: try! Data.init(contentsOf: images[i].fileURL!), scale: 0.01)
-                    imageView.image = image!
+                    var image = UIImage.init(data: try! Data.init(contentsOf: images[i].fileURL!), scale: 0.001)
+                    let imagedata = UIImage.jpegData(image!)(compressionQuality: 0.02)
+                    imageView.image = UIImage.init(data: imagedata!)
                 }catch {
                     print("图片读取错误")
                 }
