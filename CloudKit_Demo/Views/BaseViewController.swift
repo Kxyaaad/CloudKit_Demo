@@ -12,8 +12,6 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(loginSuccess(Noti:)), name: NSNotification.Name(rawValue: UserLoginSuccessedNotification), object: nil)
     }
     
@@ -24,7 +22,6 @@ class BaseViewController: UIViewController {
     
     @objc private func loginSuccess(Noti: Notification) {
            print("收到登录成功通知")
-        
         ///强制刷新界面
            view = nil
        }

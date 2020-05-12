@@ -17,6 +17,7 @@
 		045D582D244D36B900493BD0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D582C244D36B900493BD0 /* RegisterViewController.swift */; };
 		045D582F244D77DE00493BD0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D582E244D77DE00493BD0 /* ActivityIndicator.swift */; };
 		04631FEB2443FF6C001B3ED8 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04631FEA2443FF6C001B3ED8 /* Tools.swift */; };
+		046750452465577000E2BF34 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046750442465577000E2BF34 /* CoreDataManager.swift */; };
 		046DB2862446DF0B0086CEE9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DB2852446DF0B0086CEE9 /* MainTableViewCell.swift */; };
 		04CAA009243D7603004F6723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CAA008243D7603004F6723 /* AppDelegate.swift */; };
 		04CAA00B243D7603004F6723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CAA00A243D7603004F6723 /* SceneDelegate.swift */; };
@@ -43,6 +44,7 @@
 		045D582C244D36B900493BD0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		045D582E244D77DE00493BD0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		04631FEA2443FF6C001B3ED8 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		046750442465577000E2BF34 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		046DB2852446DF0B0086CEE9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		04CAA005243D7603004F6723 /* CloudKit_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudKit_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CAA008243D7603004F6723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				04631FEA2443FF6C001B3ED8 /* Tools.swift */,
 				045D582E244D77DE00493BD0 /* ActivityIndicator.swift */,
 				043A2199244EEA1B000AFC77 /* extension.swift */,
+				046750442465577000E2BF34 /* CoreDataManager.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				04CAA013243D7603004F6723 /* CloudKit_Demo.xcdatamodeld in Sources */,
 				045D582F244D77DE00493BD0 /* ActivityIndicator.swift in Sources */,
 				043A2197244EC48D000AFC77 /* SettingViewController.swift in Sources */,
+				046750452465577000E2BF34 /* CoreDataManager.swift in Sources */,
 				04CAA009243D7603004F6723 /* AppDelegate.swift in Sources */,
 				043A219C244EFA63000AFC77 /* BaseViewController.swift in Sources */,
 				043A219A244EEA1B000AFC77 /* extension.swift in Sources */,

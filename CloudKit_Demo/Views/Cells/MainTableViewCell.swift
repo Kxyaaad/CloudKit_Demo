@@ -25,16 +25,6 @@ class MainTableViewCell: UITableViewCell {
     
     var timeLab : UILabel?
     
-    lazy var image1 = UIImageView()
-    lazy var image2 = UIImageView()
-    lazy var image3 = UIImageView()
-    lazy var image4 = UIImageView()
-    lazy var image5 = UIImageView()
-    lazy var image6 = UIImageView()
-    lazy var image7 = UIImageView()
-    lazy var image8 = UIImageView()
-    lazy var image9 = UIImageView()
-    
     ///避免cell重复加载控件造成卡顿和内存溢出
     var isLoad = false
     
@@ -105,12 +95,7 @@ extension MainTableViewCell: UIScrollViewDelegate {
                 self.imageScroller.addSubview(imageView)
                
                 do {
-//                    let imageData =
-//                    let image = UIImage.init(data: imageData!)
-//                    data = UIImageJPEGRepresentation(self, 0.2)!
-                    var image = UIImage.init(data: try! Data.init(contentsOf: images[i].fileURL!), scale: 0.001)
-                    let imagedata = UIImage.jpegData(image!)(compressionQuality: 0.02)
-                    imageView.image = UIImage.init(data: imagedata!)
+                    imageView.kf.setImage(with: images[i].fileURL)
                 }catch {
                     print("图片读取错误")
                 }

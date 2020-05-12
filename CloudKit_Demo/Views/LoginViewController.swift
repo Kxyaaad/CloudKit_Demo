@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class LoginViewController: BaseViewController {
+class LoginViewController: UIViewController {
     
     let userName = UITextField()
     
@@ -70,9 +70,9 @@ class LoginViewController: BaseViewController {
     @objc func Login() {
         if self.userName.text != "" && self.passWord.text != "" {
             let pbData = CKContainer.default().publicCloudDatabase
-            let predicate = NSPredicate(format: "description = %@", self.userName.text!)
+            let predicate = NSPredicate(format: "PassWord = %@", self.userName.text!)
             print(predicate)
-            pbData.perform(CKQuery.init(recordType: "TestType", predicate: predicate), inZoneWith: nil) { (records, error) in
+            pbData.perform(CKQuery.init(recordType: "UserAccouts", predicate: predicate), inZoneWith: nil) { (records, error) in
                 if error == nil {
                     print("查询结果", records as Any)
                     if records == [] {
@@ -93,6 +93,18 @@ class LoginViewController: BaseViewController {
                             self.present(alert, animated: true, completion: nil)
                         }
                         
+                    }else{
+                        if records![0]["PassWord"] == self.passWord.text  {
+                            print("登录成功")
+                            DispatchQueue.main.async {
+                                let userDefault = UserDefaults.standard
+                                userDefault.set(self.userName.text!, forKey: "userName")
+                                
+                                ///发送登录成功通知
+                                NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: UserLoginSuccessedNotification)))
+                                self.dismiss(animated: false, completion: nil)
+                            }
+                        }
                     }
                     
                 }else {

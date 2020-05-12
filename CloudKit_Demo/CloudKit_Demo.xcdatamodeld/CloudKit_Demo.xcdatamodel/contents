@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Attachment" representedClassName="Attachment" syncable="YES" codeGenerationType="class">
+        <attribute name="thumbnail" optional="YES" attributeType="Binary"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="blog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BlogData" inverseName="attachment" inverseEntity="BlogData"/>
+        <relationship name="imageData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ImageData" inverseName="attachment" inverseEntity="ImageData"/>
+    </entity>
+    <entity name="BlogData" representedClassName="BlogData" syncable="YES" codeGenerationType="class">
+        <attribute name="artist" optional="YES" attributeType="String"/>
+        <attribute name="changeTag" optional="YES" attributeType="String"/>
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="des" optional="YES" attributeType="String"/>
+        <attribute name="modified" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="attachment" optional="YES" toMany="YES" minCount="2" deletionRule="Nullify" destinationEntity="Attachment" inverseName="blog" inverseEntity="Attachment"/>
+    </entity>
+    <entity name="CDRecords" representedClassName="CDRecords" syncable="YES" codeGenerationType="class">
+        <attribute name="cd_record" optional="YES" attributeType="Binary"/>
+        <attribute name="writeDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="ImageData" representedClassName="ImageData" syncable="YES" codeGenerationType="class">
+        <attribute name="data" optional="YES" attributeType="Binary"/>
+        <relationship name="attachment" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Attachment" inverseName="imageData" inverseEntity="Attachment"/>
+    </entity>
+    <elements>
+        <element name="Attachment" positionX="100644.01171875" positionY="-8996.78515625" width="128" height="103"/>
+        <element name="BlogData" positionX="100382.4609375" positionY="-9052.65234375" width="124.76953125" height="163"/>
+        <element name="CDRecords" positionX="100548.57421875" positionY="-9162.71484375" width="128" height="73"/>
+        <element name="ImageData" positionX="100868.8828125" positionY="-8984.65625" width="128" height="73"/>
+    </elements>
 </model>
